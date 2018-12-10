@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Cafe;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\StoreCafeRequest;
+
 /**
  * Created by PhpStorm.
  * User: 36krphplirui
@@ -26,7 +28,8 @@ class CafesController extends Controller
         return response()->json($cafe);
     }
 
-    public function postNewCafe(Request $request)
+    //public function postNewCafe(Request $request)
+    public function postNewCafe(StoreCafeRequest $request)
     {
         $cafe = new Cafe();
         $cafe->name = $request->input('name');
