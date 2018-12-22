@@ -18,4 +18,8 @@ Route::get('/login', 'Web\AppController@getLogin' )->name('login')->middleware('
 Route::get( '/auth/{social}', 'Web\AuthenticationController@getSocialRedirect')
     ->middleware('guest');
 
+Route::get('geocode', function () {
+    return \App\Utilities\GaodeMaps::geocodeAddress('天城路1号', '杭州', '浙江');
+});
+
 Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCallback')->middleware('guest');
